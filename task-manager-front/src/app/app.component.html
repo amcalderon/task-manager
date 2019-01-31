@@ -1,0 +1,60 @@
+<div id="general-container">
+  <div id="header">
+    <div id="logo"><a href="index.html"><img src="../assets/images/logo_ws2011.png" alt="WorldSkills London 2011" title="WorldSkills London 2011" /></a></div>
+    <div id="title">
+      <h1>Gestor de Tareas</h1>
+    </div>
+    <div id="info">
+      <p>Añada las tareas usando el formulario de registro y arrastelas hacia las columnas de estado. Atención las
+        nuevas tareas seran automaticamente colocadas en la columna "Pendientes".
+    </div>
+    <div class="clear"></div>
+    <div id="task-registration">
+      <label>Añadir Nueva Tarea</label><br />
+      <input type="button" (click)="showFormRegister = !showFormRegister" id="register-task-button" class="button" value="+ Añadir" *ngIf="!showFormRegister" />
+      <input type="button" (click)="showFormRegister = !showFormRegister" id="cancel-task-button" class="button" value="- Cerrar" *ngIf="showFormRegister" />
+      <div id="task-registration-form" *ngIf="showFormRegister">
+        <form action="index.html" >
+
+          <div class="field-area">
+            <label>Tarea:</label><br />
+            <input type="text" name="TaskTitle" class="task-registration-field" id="TaskTitle" maxlength="30" />
+            <span class="validation-message">Por favor, introduzca el título de la tarea</span>
+          </div>
+
+          <div class="field-area" id="task-description-field-area">
+            <label>Descripción de la tarea:</label><br />
+            <input type="text" name="TaskDescription" id="TaskDescription" class="task-registration-field" maxlength="255" />
+            <span class="validation-message">Por favor, introduzca la descripción de la tarea</span>
+          </div>
+          <span class="clear"></span>
+          <div id="task-registration-buttons">
+            <input type="submit" class="button" value="Registrar" />
+            <input type="reset" class="button" value="Borrar" />
+          </div>
+          <span class="clear"></span>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="panel">
+  </div>
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]" class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+</div>
+

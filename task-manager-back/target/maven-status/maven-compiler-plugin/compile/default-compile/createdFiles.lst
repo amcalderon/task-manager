@@ -1,0 +1,9 @@
+service/ApplicationConfig.class
+service/AbstractFacade.class
+service/UserFacadeREST.class
+service/TaskFacadeREST.class
+service/NewCrossOriginResourceSharingFilter.class
+com/example/task/manager/jpa/entities/Task.class
+com/example/task/manager/jpa/entities/Task_.class
+com/example/task/manager/jpa/entities/User.class
+com/example/task/manager/jpa/entities/User_.class

@@ -14,17 +14,17 @@
       <input type="button" (click)="showFormRegister = !showFormRegister" id="register-task-button" class="button" value="+ Añadir" *ngIf="!showFormRegister" />
       <input type="button" (click)="showFormRegister = !showFormRegister" id="cancel-task-button" class="button" value="- Cerrar" *ngIf="showFormRegister" />
       <div id="task-registration-form" *ngIf="showFormRegister">
-        <form action="index.html" >
+        <form (ngSubmit)="save()">
 
           <div class="field-area">
             <label>Tarea:</label><br />
-            <input type="text" name="TaskTitle" class="task-registration-field" id="TaskTitle" maxlength="30" />
+            <input type="text" name="TaskTitle" class="task-registration-field" id="TaskTitle" maxlength="30" [(ngModel)]="task.name" />
             <span class="validation-message">Por favor, introduzca el título de la tarea</span>
           </div>
 
           <div class="field-area" id="task-description-field-area">
             <label>Descripción de la tarea:</label><br />
-            <input type="text" name="TaskDescription" id="TaskDescription" class="task-registration-field" maxlength="255" />
+            <input type="text" name="TaskDescription" id="TaskDescription" class="task-registration-field" maxlength="255" [(ngModel)]="task.description" />
             <span class="validation-message">Por favor, introduzca la descripción de la tarea</span>
           </div>
           <span class="clear"></span>
